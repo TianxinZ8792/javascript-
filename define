@@ -1,0 +1,38 @@
+//滑动条改变导航栏切换样式
+  
+  //兼容浏览器监听绑定事件
+	function addEvent(obj,event,fn){
+		if(obj.attachEvent){
+			obj.attachEvent('on'+event,fn);
+		}
+		else{
+			obj.addEventListener(event,fn,false);
+		}
+	}
+  //改变导航栏CSS
+	function navCssChange(){
+		var distanceTop = $(document).scrollTop();
+		var nav = document.getElementById("navbar");
+		var navNav = document.getElementById("navbar-nav");
+		if(distanceTop){
+			nav.setAttribute("class","navbar navbar-change");
+			navNav.setAttribute("class","navbar-nav navbar-nav-change");
+		}
+		else{
+			nav.setAttribute("class","navbar");
+			navNav.setAttribute("class","navbar-nav");
+		}
+		}
+    
+//css悬浮特效
+	function summaryChange() {
+		  var onmouse = document.getElementsByClassName("info-summary-sequence");
+		  for(var i = 0;i < onmouse.length;i++){
+			  onmouse[i].onmouseover  = function(){
+			  	 this.setAttribute("class","info-summary-sequence-change");
+			  }
+			  onmouse[i].onmouseout  = function(){
+			  	 this.setAttribute("class","info-summary-sequence");
+			  }
+		  }		  
+		};
